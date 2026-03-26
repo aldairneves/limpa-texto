@@ -1,4 +1,10 @@
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 :root {
   --accent: #e8ff47;
@@ -15,7 +21,7 @@
   --muted: #666;
   --placeholder: #3a3a3a;
   --btn-clear-hover: #f0f0f0;
-  --shadow: 0 2px 12px rgba(0,0,0,.4);
+  --shadow: 0 2px 12px rgba(0, 0, 0, .4);
 }
 
 [data-theme="light"] {
@@ -27,7 +33,7 @@
   --muted: #999;
   --placeholder: #ccc;
   --btn-clear-hover: #111;
-  --shadow: 0 2px 12px rgba(0,0,0,.08);
+  --shadow: 0 2px 12px rgba(0, 0, 0, .08);
   --accent: #b8cc00;
   --accent2: #00b89a;
 }
@@ -60,7 +66,8 @@ header {
 }
 
 .logo-icon {
-  width: 42px; height: 42px;
+  width: 42px;
+  height: 42px;
   background: var(--accent);
   border-radius: 10px;
   display: grid;
@@ -68,7 +75,10 @@ header {
   flex-shrink: 0;
   transition: background .2s;
 }
-.logo-icon svg { color: #0d0d0d; }
+
+.logo-icon svg {
+  color: #0d0d0d;
+}
 
 header h1 {
   font-size: 1.25rem;
@@ -93,9 +103,19 @@ header h1 {
   transition: all .15s;
   flex-shrink: 0;
 }
-.theme-toggle:hover { color: var(--text); border-color: var(--muted); }
-.theme-toggle svg { transition: transform .3s; }
-[data-theme="light"] .theme-toggle svg { transform: rotate(180deg); }
+
+.theme-toggle:hover {
+  color: var(--text);
+  border-color: var(--muted);
+}
+
+.theme-toggle svg {
+  transition: transform .3s;
+}
+
+[data-theme="light"] .theme-toggle svg {
+  transform: rotate(180deg);
+}
 
 .card {
   width: 100%;
@@ -136,19 +156,29 @@ header h1 {
   transition: all .15s;
   white-space: nowrap;
 }
-.opt-btn:hover { border-color: var(--muted); color: var(--text); }
+
+.opt-btn:hover {
+  border-color: var(--muted);
+  color: var(--text);
+}
+
 .opt-btn.active {
   background: var(--accent);
   border-color: var(--accent);
   color: #0d0d0d;
 }
+
 .opt-btn .dot {
-  width: 7px; height: 7px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
   background: currentColor;
   opacity: .5;
 }
-.opt-btn.active .dot { opacity: 1; }
+
+.opt-btn.active .dot {
+  opacity: 1;
+}
 
 .sep {
   width: 1px;
@@ -169,13 +199,18 @@ header h1 {
   justify-content: center;
   transition: background .2s, border-color .2s;
 }
-.find-replace.visible { display: flex; }
+
+.find-replace.visible {
+  display: flex;
+}
+
 .find-replace label {
   font-size: 0.72rem;
   color: var(--muted);
   font-weight: 500;
   white-space: nowrap;
 }
+
 .find-replace input {
   flex: 1;
   min-width: 140px;
@@ -190,19 +225,34 @@ header h1 {
   outline: none;
   transition: border-color .15s, background .2s;
 }
-.find-replace input:focus { border-color: var(--muted); }
-.find-replace input::placeholder { color: var(--placeholder); }
+
+.find-replace input:focus {
+  border-color: var(--muted);
+}
+
+.find-replace input::placeholder {
+  color: var(--placeholder);
+}
 
 .editors {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
+
 @media (max-width: 600px) {
-  .editors { grid-template-columns: 1fr; }
+  .editors {
+    grid-template-columns: 1fr;
+  }
 }
 
-.editor-wrap { display: flex; flex-direction: column; }
-.editor-wrap:first-child { border-right: 1px solid var(--border); }
+.editor-wrap {
+  display: flex;
+  flex-direction: column;
+}
+
+.editor-wrap:first-child {
+  border-right: 1px solid var(--border);
+}
 
 .editor-label {
   padding: 12px 18px 8px;
@@ -227,7 +277,10 @@ textarea {
   padding: 4px 18px 18px;
   caret-color: var(--accent);
 }
-textarea::placeholder { color: var(--placeholder); }
+
+textarea::placeholder {
+  color: var(--placeholder);
+}
 
 .output-area {
   min-height: 260px;
@@ -239,6 +292,7 @@ textarea::placeholder { color: var(--placeholder); }
   white-space: pre-wrap;
   word-break: break-word;
 }
+
 .output-area:empty::after {
   content: 'O resultado aparece aqui…';
   color: var(--placeholder);
@@ -277,15 +331,30 @@ textarea::placeholder { color: var(--placeholder); }
   cursor: pointer;
   transition: all .15s;
 }
+
 .btn-clear {
   background: transparent;
   border: 1px solid var(--border);
   color: var(--muted);
 }
-.btn-clear:hover { color: var(--btn-clear-hover); border-color: var(--muted); }
-.btn-copy { background: var(--accent); color: #0d0d0d; }
-.btn-copy:hover { filter: brightness(.9); }
-.btn-copy.copied { background: var(--accent2); }
+
+.btn-clear:hover {
+  color: var(--btn-clear-hover);
+  border-color: var(--muted);
+}
+
+.btn-copy {
+  background: var(--accent);
+  color: #0d0d0d;
+}
+
+.btn-copy:hover {
+  filter: brightness(.9);
+}
+
+.btn-copy.copied {
+  background: var(--accent2);
+}
 
 .toast {
   position: fixed;
@@ -304,4 +373,8 @@ textarea::placeholder { color: var(--placeholder); }
   transition: all .3s;
   white-space: nowrap;
 }
-.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+.toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}

@@ -3,9 +3,9 @@ let caseMode = null;
 let frVisible = false;
 
 const prepositions = new Set([
-  'de','da','do','das','dos','na','no','nas','nos',
-  'em','a','o','as','os','e','é','ou','que','por',
-  'para','com','um','uma','uns','umas','ao','aos','à','às'
+  'de', 'da', 'do', 'das', 'dos', 'na', 'no', 'nas', 'nos',
+  'em', 'a', 'o', 'as', 'os', 'e', 'é', 'ou', 'que', 'por',
+  'para', 'com', 'um', 'uma', 'uns', 'umas', 'ao', 'aos', 'à', 'às'
 ]);
 
 function toggleTheme() {
@@ -61,15 +61,15 @@ function process() {
   const raw = document.getElementById('input').value;
   let out = raw;
 
-  if (opts.html)      out = out.replace(/<[^>]*>/g, '');
-  if (opts.emojis)    out = out.replace(/\p{Emoji}/gu, '');
-  if (opts.punct)     out = out.replace(/[!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~«»""'']/g, '');
-  if (opts.numbers)   out = out.replace(/[0-9]/g, '');
+  if (opts.html) out = out.replace(/<[^>]*>/g, '');
+  if (opts.emojis) out = out.replace(/\p{Emoji}/gu, '');
+  if (opts.punct) out = out.replace(/[!"#$%&'()*+,\-./:;<=>?@[\\\]^_`{|}~«»""'']/g, '');
+  if (opts.numbers) out = out.replace(/[0-9]/g, '');
   if (opts.allspaces) out = out.replace(/\s+/g, '');
 
   if (frVisible) {
     const find = document.getElementById('frFind').value;
-    const rep  = document.getElementById('frReplace').value;
+    const rep = document.getElementById('frReplace').value;
     if (find) {
       const escaped = find.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       out = out.replace(new RegExp(escaped, 'g'), rep);
@@ -89,13 +89,13 @@ function process() {
   document.getElementById('s-chars').textContent = out.length;
   document.getElementById('s-words').textContent = words;
   document.getElementById('s-lines').textContent = lines;
-  document.getElementById('s-diff').textContent  = Math.max(0, raw.length - out.length);
+  document.getElementById('s-diff').textContent = Math.max(0, raw.length - out.length);
 }
 
 function clearAll() {
   document.getElementById('input').value = '';
   document.getElementById('output').textContent = '';
-  ['s-chars','s-words','s-lines','s-diff'].forEach(id =>
+  ['s-chars', 's-words', 's-lines', 's-diff'].forEach(id =>
     document.getElementById(id).textContent = 0
   );
 }

@@ -1,118 +1,124 @@
 <!DOCTYPE html>
 <html lang="pt-BR" data-theme="dark">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Limpar Texto</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
 
-<header>
-  <div class="header-left">
-    <div class="logo-icon">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round">
-        <path d="M4 6h16M4 12h10M4 18h6"/>
+  <header>
+    <div class="header-left">
+      <div class="logo-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round">
+          <path d="M4 6h16M4 12h10M4 18h6" />
+        </svg>
+      </div>
+      <h1>Limpar Texto</h1>
+    </div>
+
+    <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="5" />
+        <line x1="12" y1="1" x2="12" y2="3" />
+        <line x1="12" y1="21" x2="12" y2="23" />
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+        <line x1="1" y1="12" x2="3" y2="12" />
+        <line x1="21" y1="12" x2="23" y2="12" />
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
       </svg>
+      <span id="themeLabel">Modo claro</span>
+    </button>
+  </header>
+
+  <div class="card">
+
+    <div class="options-bar">
+      <button class="opt-btn active" data-op="allspaces" onclick="toggleOpt(this)">
+        <span class="dot"></span> Remover espaços
+      </button>
+
+      <div class="sep"></div>
+
+      <button class="opt-btn" data-case="upper" onclick="setCase(this)">
+        <span class="dot"></span> MAIÚSCULO
+      </button>
+      <button class="opt-btn" data-case="lower" onclick="setCase(this)">
+        <span class="dot"></span> minúsculo
+      </button>
+      <button class="opt-btn" data-case="title" onclick="setCase(this)">
+        <span class="dot"></span> Primeiras Maiúsculas
+      </button>
+
+      <div class="sep"></div>
+
+      <button class="opt-btn" data-op="punct" onclick="toggleOpt(this)">
+        <span class="dot"></span> Remover pontuação
+      </button>
+      <button class="opt-btn" data-op="numbers" onclick="toggleOpt(this)">
+        <span class="dot"></span> Remover números
+      </button>
+      <button class="opt-btn" data-op="emojis" onclick="toggleOpt(this)">
+        <span class="dot"></span> Remover emojis
+      </button>
+      <button class="opt-btn" data-op="html" onclick="toggleOpt(this)">
+        <span class="dot"></span> Remover HTML
+      </button>
+      <button class="opt-btn" data-op="invert" onclick="toggleOpt(this)">
+        <span class="dot"></span> Inverter texto
+      </button>
+
+      <div class="sep"></div>
+
+      <button class="opt-btn" id="btnFR" onclick="toggleFindReplace()">
+        <span class="dot"></span> Localizar e substituir
+      </button>
     </div>
-    <h1>Limpar Texto</h1>
-  </div>
 
-  <button class="theme-toggle" onclick="toggleTheme()" id="themeBtn">
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-      <circle cx="12" cy="12" r="5"/>
-      <line x1="12" y1="1" x2="12" y2="3"/>
-      <line x1="12" y1="21" x2="12" y2="23"/>
-      <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-      <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-      <line x1="1" y1="12" x2="3" y2="12"/>
-      <line x1="21" y1="12" x2="23" y2="12"/>
-      <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-      <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-    </svg>
-    <span id="themeLabel">Modo claro</span>
-  </button>
-</header>
-
-<div class="card">
-
-  <div class="options-bar">
-    <button class="opt-btn active" data-op="allspaces" onclick="toggleOpt(this)">
-      <span class="dot"></span> Remover espaços
-    </button>
-
-    <div class="sep"></div>
-
-    <button class="opt-btn" data-case="upper" onclick="setCase(this)">
-      <span class="dot"></span> MAIÚSCULO
-    </button>
-    <button class="opt-btn" data-case="lower" onclick="setCase(this)">
-      <span class="dot"></span> minúsculo
-    </button>
-    <button class="opt-btn" data-case="title" onclick="setCase(this)">
-      <span class="dot"></span> Primeiras Maiúsculas
-    </button>
-
-    <div class="sep"></div>
-
-    <button class="opt-btn" data-op="punct" onclick="toggleOpt(this)">
-      <span class="dot"></span> Remover pontuação
-    </button>
-    <button class="opt-btn" data-op="numbers" onclick="toggleOpt(this)">
-      <span class="dot"></span> Remover números
-    </button>
-    <button class="opt-btn" data-op="emojis" onclick="toggleOpt(this)">
-      <span class="dot"></span> Remover emojis
-    </button>
-    <button class="opt-btn" data-op="html" onclick="toggleOpt(this)">
-      <span class="dot"></span> Remover HTML
-    </button>
-    <button class="opt-btn" data-op="invert" onclick="toggleOpt(this)">
-      <span class="dot"></span> Inverter texto
-    </button>
-
-    <div class="sep"></div>
-
-    <button class="opt-btn" id="btnFR" onclick="toggleFindReplace()">
-      <span class="dot"></span> Localizar e substituir
-    </button>
-  </div>
-
-  <div class="find-replace" id="findReplace">
-    <label>Localizar</label>
-    <input type="text" id="frFind" placeholder="Palavra ou frase…" oninput="process()"/>
-    <label>Substituir por</label>
-    <input type="text" id="frReplace" placeholder="Deixe vazio para remover" oninput="process()"/>
-  </div>
-
-  <div class="editors">
-    <div class="editor-wrap">
-      <div class="editor-label">Entrada</div>
-      <textarea id="input" placeholder="Cole ou digite seu texto aqui…" oninput="process()"></textarea>
+    <div class="find-replace" id="findReplace">
+      <label>Localizar</label>
+      <input type="text" id="frFind" placeholder="Palavra ou frase…" oninput="process()" />
+      <label>Substituir por</label>
+      <input type="text" id="frReplace" placeholder="Deixe vazio para remover" oninput="process()" />
     </div>
-    <div class="editor-wrap">
-      <div class="editor-label">Saída</div>
-      <div class="output-area" id="output"></div>
+
+    <div class="editors">
+      <div class="editor-wrap">
+        <div class="editor-label">Entrada</div>
+        <textarea id="input" placeholder="Cole ou digite seu texto aqui…" oninput="process()"></textarea>
+      </div>
+      <div class="editor-wrap">
+        <div class="editor-label">Saída</div>
+        <div class="output-area" id="output"></div>
+      </div>
     </div>
+
+    <div class="stats-bar">
+      <span>Caracteres: <b id="s-chars">0</b></span>
+      <span>Palavras: <b id="s-words">0</b></span>
+      <span>Linhas: <b id="s-lines">0</b></span>
+      <span>Removidos: <b id="s-diff" style="color:var(--accent)">0</b></span>
+    </div>
+
+    <div class="actions">
+      <button class="btn btn-clear" onclick="clearAll()">Limpar</button>
+      <button class="btn btn-copy" id="copyBtn" onclick="copyOutput()">Copiar resultado</button>
+    </div>
+
   </div>
 
-  <div class="stats-bar">
-    <span>Caracteres: <b id="s-chars">0</b></span>
-    <span>Palavras: <b id="s-words">0</b></span>
-    <span>Linhas: <b id="s-lines">0</b></span>
-    <span>Removidos: <b id="s-diff" style="color:var(--accent)">0</b></span>
-  </div>
+  <div class="toast" id="toast">✓ Copiado para a área de transferência</div>
 
-  <div class="actions">
-    <button class="btn btn-clear" onclick="clearAll()">Limpar</button>
-    <button class="btn btn-copy" id="copyBtn" onclick="copyOutput()">Copiar resultado</button>
-  </div>
-
-</div>
-
-<div class="toast" id="toast">✓ Copiado para a área de transferência</div>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>
